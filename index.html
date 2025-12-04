@@ -169,18 +169,11 @@
         }
 
         .quiz-row {
-            display: flex;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
             gap: 30px;
-            flex-wrap: wrap;
-        }
-
-        .first-row {
-            justify-content: center;
-        }
-
-        .second-row {
-            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         /* 퀴즈 카드 */
@@ -193,9 +186,6 @@
             cursor: pointer;
             transition: all 0.3s ease;
             border: 1px solid rgba(255, 255, 255, 0.2);
-            min-width: 280px;
-            max-width: 320px;
-            flex: 1;
             position: relative;
             overflow: hidden;
         }
@@ -303,6 +293,16 @@
             font-size: 0.9rem;
             color: white;
             font-weight: 500;
+            margin: 5px;
+        }
+
+        .creator-info {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 400;
         }
 
         /* 카드별 색상 */
@@ -324,6 +324,10 @@
 
         .card-5 {
             background: linear-gradient(135deg, rgba(144, 238, 144, 0.8), rgba(185, 255, 185, 0.6));
+        }
+
+        .card-6 {
+            background: linear-gradient(135deg, rgba(255, 159, 64, 0.8), rgba(255, 206, 128, 0.6));
         }
 
         /* 선물 섹션 */
@@ -542,13 +546,7 @@
             }
             
             .quiz-row {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .quiz-card {
-                max-width: 100%;
-                width: 100%;
+                grid-template-columns: repeat(2, 1fr);
             }
             
             .stamps-container {
@@ -596,9 +594,12 @@
                 font-size: 0.9rem;
             }
             
+            .quiz-row {
+                grid-template-columns: 1fr;
+            }
+            
             .quiz-card {
                 padding: 20px;
-                min-width: auto;
             }
             
             .stamp-header {
@@ -648,23 +649,25 @@
                 <div class="stamp" id="stamp-3">🔑</div>
                 <div class="stamp" id="stamp-4">🧩</div>
                 <div class="stamp" id="stamp-5">⚡</div>
+                <div class="stamp" id="stamp-6">📱</div>
             </div>
             <div class="progress-container">
                 <div class="progress-bar">
                     <div class="progress-fill" id="progressFill"></div>
                 </div>
-                <span class="progress-text" id="progressText">0/5 완료</span>
+                <span class="progress-text" id="progressText">0/6 완료</span>
             </div>
         </div>
 
         <div class="quiz-grid">
-            <div class="quiz-row first-row">
+            <div class="quiz-row">
                 <div class="quiz-card card-1" onclick="openQuiz('https://cfibmoyk.gensparkspace.com/', 1)">
                     <div class="card-icon">🎮</div>
                     <h3>디지털 시민 어드벤처</h3>
                     <p>방향키로 움직이며 디지털 세상을<br>탐험하고 올바른 선택으로<br>디지털 시민이 되어보세요!</p>
                     <span class="tag">게임</span>
                     <span class="tag">어드벤처</span>
+                    <div class="creator-info">제작: 수현초등학교 이병호</div>
                 </div>
                 <div class="quiz-card card-2" onclick="openQuiz('https://gensparkpublicblob.blob.core.windows.net/user-upload-image/page/toolu_013QpHEf1PVBozg5LNp5Hf16/digital_citizenship_education_v3.html', 2)">
                     <div class="card-icon">🎓</div>
@@ -672,27 +675,36 @@
                     <p>4가지 주제의 영상을 보고<br>퀴즈를 풀어<br>디지털 시민 인증서를<br>받아보세요!</p>
                     <span class="tag">영상</span>
                     <span class="tag">인증서</span>
+                    <div class="creator-info">제작: 세담초등학교 고원준</div>
                 </div>
-            </div>
-            
-            <div class="quiz-row second-row">
                 <div class="quiz-card card-3" onclick="openQuiz('https://gensparkpublicblob.blob.core.windows.net/user-upload-image/page/toolu_01L3MDcXPvH2q4XFUd8j9xZY/digital_citizen_escape_game_final.html', 3)">
                     <div class="card-icon">🔑</div>
                     <h3>디지털 세상 대모험</h3>
                     <p>4개의 특별한 방을 통과하는<br>방탈출 게임으로<br>진정한 디지털 시민이 되어보세요!</p>
                     <span class="tag">방탈출 게임</span>
+                    <div class="creator-info">제작: 화원초등학교 김윤수</div>
                 </div>
                 <div class="quiz-card card-4" onclick="openQuiz('https://bowling-story.my.canva.site/mbti', 4)">
                     <div class="card-icon">🧩</div>
                     <h3>디지털 시민성 MBTI</h3>
                     <p>나의 성격 유형을 파악하고<br>맞춤형 디지털 시민성 가이드를<br>받아보세요!</p>
                     <span class="tag">성격 테스트</span>
+                    <div class="creator-info">제작: 기안초등학교 허시영</div>
                 </div>
                 <div class="quiz-card card-5" onclick="openQuiz('https://tpwns001.my.canva.site/', 5)">
-                    <div class="card-icon">📝</div>
+                    <div class="card-icon">⚡</div>
                     <h3>디지털 시민성 퀴즈</h3>
                     <p>초등학교 3학년 학생들을 위한<br>디지털 시민성 퀴즈입니다.<br>총 12문제를 풀어보세요!</p>
                     <span class="tag">퀴즈</span>
+                    <span class="tag">3학년</span>
+                    <div class="creator-info">제작: 반송초등학교 김세준</div>
+                </div>
+                <div class="quiz-card card-6" onclick="openQuiz('https://bansong303.my.canva.site/', 6)">
+                    <div class="card-icon">📱</div>
+                    <h3>디지털 시민 교육 퀴즈</h3>
+                    <p>인터넷을 안전하고 현명하게<br>사용하는 방법을 배우고<br>디지털 시민성을 키워보세요!</p>
+                    <span class="tag">교육 퀴즈</span>
+                    <div class="creator-info">제작: 반송초등학교 박수아</div>
                 </div>
             </div>
         </div>
@@ -746,17 +758,18 @@
             updateStampDisplay();
             updateProgress();
             
-            // 키보드 단축키 (1-5 숫자키)
+            // 키보드 단축키 (1-6 숫자키)
             document.addEventListener('keydown', function(e) {
                 const key = e.key;
-                if (key >= '1' && key <= '5') {
+                if (key >= '1' && key <= '6') {
                     const index = parseInt(key);
                     const urls = [
                         'https://cfibmoyk.gensparkspace.com/',
                         'https://gensparkpublicblob.blob.core.windows.net/user-upload-image/page/toolu_013QpHEf1PVBozg5LNp5Hf16/digital_citizenship_education_v3.html',
                         'https://gensparkpublicblob.blob.core.windows.net/user-upload-image/page/toolu_01L3MDcXPvH2q4XFUd8j9xZY/digital_citizen_escape_game_final.html',
                         'https://bowling-story.my.canva.site/mbti',
-                        'https://tpwns001.my.canva.site/'
+                        'https://tpwns001.my.canva.site/',
+                        'https://bansong303.my.canva.site/'
                     ];
                     openQuiz(urls[index - 1], index);
                 }
@@ -793,7 +806,7 @@
                 showNotification(`스탬프 ${quizId}번을 획득했습니다! 🎉`);
                 
                 // 모든 스탬프 수집 시 축하 모달
-                if (collectedStamps.length === 5) {
+                if (collectedStamps.length === 6) {
                     setTimeout(() => {
                         showCompletionModal();
                     }, 1000);
@@ -803,7 +816,7 @@
 
         // 스탬프 표시 업데이트
         function updateStampDisplay() {
-            for (let i = 1; i <= 5; i++) {
+            for (let i = 1; i <= 6; i++) {
                 const stamp = document.getElementById(`stamp-${i}`);
                 if (stamp) {
                     if (collectedStamps.includes(i)) {
@@ -821,9 +834,9 @@
             const progressText = document.getElementById('progressText');
             
             if (progressFill && progressText) {
-                const percentage = (collectedStamps.length / 5) * 100;
+                const percentage = (collectedStamps.length / 6) * 100;
                 progressFill.style.width = `${percentage}%`;
-                progressText.textContent = `${collectedStamps.length}/5 완료`;
+                progressText.textContent = `${collectedStamps.length}/6 완료`;
             }
         }
 
